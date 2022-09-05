@@ -1,6 +1,5 @@
 import React from "react";
 import Home from "../../components/Home";
-import Favorites from "../../components/Favorites";
 import Profile from "../../components/Profile";
 import SearchCity from "../../components/SearchCity";
 import { Feather, MaterialIcons, FontAwesome } from "react-native-vector-icons";
@@ -56,8 +55,7 @@ export default function BottomTabs() {
         })}
       >
         <Tab.Screen name="Search City" component={SearchCity} />
-        {/*  <Tab.Screen name="Home" component={Home} /> */}
-        {/* <Tab.Screen name="Favorites" component={Favorites} /> */}
+        <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
     </NavigationContainer>

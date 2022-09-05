@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Text, View, TouchableHighlight } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { stylesCityCard } from "./styles";
 import react from "react";
 import { WeatherContext } from "../../providers/auth";
@@ -15,7 +16,7 @@ import {
   WindNightIcon,
 } from "../Icons";
 import { handleIconWeather } from "../IconWeather";
-import { removeFavorite } from "../../services/removeFavorite";
+import { removeFavorite } from "../../services/back-end/removeFavorite";
 
 export default function CityCard(props) {
   const styles = stylesCityCard;
@@ -28,14 +29,16 @@ export default function CityCard(props) {
         style={styles.container}
         end={{ x: 1, y: 1.5 }}
       >
-        <Button
-          title="remove"
-          onPress={() => {
-            removeFavorite(props.index).then((res) => {
-              getData();
-            });
-          }}
-        />
+        <View style={styles.containerBtnRemove}>
+          <View
+            style={[
+              styles.btnRemove,
+              { display: !props.remove ? "none" : "flex" },
+            ]}
+          >
+            <IconButtonRemove indexItem={props.index} />
+          </View>
+        </View>
         <View style={styles.infoContainer}>
           <View>
             <Text style={styles.temp}>{props.temp}°</Text>
@@ -43,7 +46,7 @@ export default function CityCard(props) {
             <Text style={styles.country}>{props.country}</Text>
           </View>
           <View style={styles.iconWeather}>
-            {handleIconWeather(props.weather, 40, 40)}
+            {handleIconWeather(props.codeCondition, 70, 70)}
           </View>
         </View>
         <View style={styles.infoBottomContainer}>
@@ -69,3 +72,27 @@ export default function CityCard(props) {
     </View>
   );
 }
+
+const IconButtonRemove = (props) => {
+  const { getData } = react.useContext(WeatherContext);
+  return (
+    <View>
+      <TouchableHighlight
+        onPress={async () => {
+          removeFavorite(props.indexItem).then(() => {
+            getData();
+          });
+        }}
+      >
+        <Text>
+          <AntDesign
+            name="closecircle"
+            size={25}
+            color="#909090"
+            style={{ textAlign: "right" }}
+          />
+        </Text>
+      </TouchableHighlight>
+    </View>
+  );
+};

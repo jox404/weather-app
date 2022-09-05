@@ -16,6 +16,7 @@ export default function Routes() {
       const token = await AsyncStorage.getItem("token");
       if (token !== null) {
         setToken(token);
+        console.log(token); /* remover depois que o projeto acabar */
       } else {
         console.log("token don't exists");
       }

@@ -7,8 +7,21 @@ export const stylesCityCard = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     margin: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     paddingVertical: 10,
+    zIndex: 0,
+  },
+  containerBtnRemove: {
+    position: "absolute",
+    width: 160,
+    paddingRight: 20,
+    paddingTop: 5,
+    zIndex: 2,
+    justifyContent: "flex-end",
+    flexDirection: "row",
+  },
+  btnRemove: {
+    width: 25,
   },
   infoContainer: {
     display: "flex",
@@ -32,7 +45,10 @@ export const stylesCityCard = StyleSheet.create({
   },
   iconWeather: {
     position: "absolute",
-    marginLeft: "69%",
+    justifyContent: "flex-end",
+    flexDirection: "row",
+    width: 130,
+    /*  backgroundColor: "#fff", */
   },
   infoBottomContainer: {
     justifyContent: "space-between",

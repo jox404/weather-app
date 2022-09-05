@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { View } from "react-native";
 import SearchField from "../SearchField";
 import { LinearGradient } from "expo-linear-gradient";
@@ -8,7 +8,7 @@ import { WeatherContext } from "../../providers/auth";
 import CityPoster from "../CityPoster";
 
 export default function SearchCity() {
-  const { dateNow } = React.useContext(WeatherContext);
+  const { dateNow } = useContext(WeatherContext);
   const styles = stylesSearchCity;
   const [data, setData] = useState(null);
   const [city, setCity] = useState(null);
@@ -19,20 +19,7 @@ export default function SearchCity() {
   const [humidity, setHumidity] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [renderPoster, setRenderPoster] = useState(false);
-  const [conditionCode, setConditionCode] = useState(undefined);
-
-  useEffect(() => {
-    if (data != null) {
-      setCity(data.location.name);
-      setCountry(data.location.country);
-      setRegion(data.location.region);
-      setWind(data.current.wind_kph);
-      setHumidity(data.current.humidity);
-      setTemp(data.current.temp_c);
-      setConditionCode(data.current.condition.code);
-    }
-  }, [data]);
-
+  const [codeCondition, setCodeCondition] = useState(undefined);
   const handleSubmit = async () => {
     const dataCity = await handleSearchCity(inputValue);
     if (dataCity == "input empty") {
@@ -43,6 +30,18 @@ export default function SearchCity() {
       setInputValue("");
     }
   };
+
+  useEffect(() => {
+    if (data != null) {
+      setCity(data.location.name);
+      setCountry(data.location.country);
+      setRegion(data.location.region);
+      setWind(data.current.wind_kph);
+      setHumidity(data.current.humidity);
+      setTemp(data.current.temp_c);
+      setCodeCondition(data.current.condition.code);
+    }
+  }, [data, city]);
 
   return (
     <LinearGradient
@@ -68,7 +67,7 @@ export default function SearchCity() {
           temp={temp}
           wind={wind}
           humidity={humidity}
-          conditionCode={conditionCode}
+          codeCondition={codeCondition}
         />
       </View>
     </LinearGradient>

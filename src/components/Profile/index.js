@@ -5,9 +5,8 @@ import { WeatherContext } from "../../providers/auth";
 import { LinearGradient } from "expo-linear-gradient";
 import { profileStyle } from "./style";
 import { FontAwesome } from "react-native-vector-icons";
-
 import Config from "../Config";
-import FavoritesTest from "../FavoritesTest";
+import Favorites from "../Favorites";
 
 export default function Profile() {
   const { setTokenStatus, dateNow } = React.useContext(WeatherContext);
@@ -70,7 +69,7 @@ export default function Profile() {
             </View>
           </View>
         </LinearGradient>
-        {settings ? <Config /> : <FavoritesTest />}
+        {settings ? <Config /> : <Favorites />}
       </View>
     </LinearGradient>
   );

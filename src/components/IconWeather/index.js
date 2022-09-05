@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { WeatherContext } from "../../providers/auth";
 import {
   CaudyDayIcon,
@@ -24,9 +24,7 @@ import {
 } from "../../services/weatherApi/conditionCodes";
 import { comparatorCodeList } from "../../tools/comparatorCodeList";
 
-const handleIconWeather = (weather, widht, height) => {
-  const { dateNow } = React.useContext(WeatherContext);
-
+const handleIconWeather = (weather, widht, height, dateNow) => {
   switch (true) {
     case comparatorCodeList(clearCodeList, weather):
       return dateNow <= 17 ? (

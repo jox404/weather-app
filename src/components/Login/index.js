@@ -12,7 +12,7 @@ import { WeatherContext } from "../../providers/auth";
 import { setData } from "../../services/storageLocal";
 
 export default function Login() {
-  const { setTokenStatus, dateNow } = React.useContext(WeatherContext);
+  const { setTokenStatus, dateNow, getData } = React.useContext(WeatherContext);
   const storeData = async (key, value) => {
     try {
       await AsyncStorage.setItem(key, value);
@@ -77,7 +77,8 @@ export default function Login() {
         if (res.token) {
           await setData("token", res.token); /* ta errado esse token */
           const favorites = JSON.stringify(res.favorites);
-          await setData("favorites", favorites);
+          getData();
+          /*  await setData("favorites", favorites); */
           await setTokenStatus(true); /* nada a ver foda-se */
         } else {
           console.log(res);

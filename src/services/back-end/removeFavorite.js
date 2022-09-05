@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getData, setData } from "./storageLocal";
+import { getData, setData } from "../storageLocal";
 
 const removeFavorite = async (index) => {
   const getToken = async () => {

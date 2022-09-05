@@ -2,11 +2,22 @@ import { StyleSheet } from "react-native";
 
 export const stylesFavorites = StyleSheet.create({
   container: {
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    width: "100%",
+    height: 500,
+    paddingTop: 5,
+    marginTop: 2,
   },
-  searchField: {
-    paddingHorizontal: 20,
-    marginTop: 60,
+  title: {
+    fontSize: 20,
+    marginBottom: 2,
+    color: "#fff",
+    textAlign: "center",
+    fontFamily: "Roboto_300Light",
+  },
+  favoritesListContainer: {
+    borderColor: "#fff",
+  },
+  favoritesList: {
+    justifyContent: "space-around",
   },
 });

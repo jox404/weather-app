@@ -17,7 +17,8 @@ import CloudyNightLager from "../../assets/cloudyNightLarge.svg";
 import RainyDay from "../../assets/rainyDay.svg";
 import MoonEllipse from "../../assets/moonEllipse.svg";
 import RainyNight from "../../assets/rainyNight.svg";
-import PlusDay from "../../assets/plusDay.svg";
+import Heart from "../../assets/heart.svg";
+import HeartBroken from "../../assets/heartBroken.svg";
 import SendArrowDay from "../../assets/sendArrowDay.svg";
 import SendArrowNight from "../../assets/sendArrowNight.svg";
 import SnowDay from "../../assets/snowDay.svg";
@@ -126,11 +127,22 @@ const RainyNightIcon = (props) => {
   );
 };
 
-const PlusDayIcon = (props) => {
+const HeartIcon = (props) => {
   return (
-    <PlusDay width={props.width} height={props.height} style={props.style} />
+    <Heart width={props.width} height={props.height} style={props.style} />
   );
 };
+
+const HeartBrokenIcon = (props) => {
+  return (
+    <HeartBroken
+      width={props.width}
+      height={props.height}
+      style={props.style}
+    />
+  );
+};
+
 const SendArrowDayIcon = (props) => {
   return (
     <SendArrowDay
@@ -179,7 +191,8 @@ export {
   RainyDayIcon,
   MoonEllipseIcon,
   RainyNightIcon,
-  PlusDayIcon,
+  HeartIcon,
+  HeartBrokenIcon,
   SendArrowDayIcon,
   SendArrowNightIcon,
   SnowDayIcon,

@@ -1,18 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useContext } from "react";
-import { WeatherContext } from "../providers/auth";
-import { setData } from "../services/storageLocal";
 
-const addToFavorites = async (name, temp, country, weather) => {
-  var data = {
-    favorites: {
-      name: name,
-      temp: temp,
-      country: country,
-      weather: weather,
-    },
-  };
-  data = JSON.stringify(data);
+const getFavorites = async () => {
   const getToken = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
@@ -27,8 +15,9 @@ const addToFavorites = async (name, temp, country, weather) => {
     }
   };
   const token = await getToken();
-  await fetch(`http://192.168.0.103:3000/addFavorites`, {
-    method: "POST",
+  var favoritesAndLastUpdate = undefined;
+  await fetch(`http://192.168.0.103:3000/favorites`, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer my-token",
@@ -38,13 +27,14 @@ const addToFavorites = async (name, temp, country, weather) => {
       Connection: "keep-alive",
       "x-access-token": token,
     },
-    body: data,
   })
-    .then((res) => res.json())
     .then((res) => {
-      const favorites = JSON.stringify(res.favorites);
-      setData("favorites", favorites);
+      return res.json();
+    })
+    .then((res) => {
+      return (favoritesAndLastUpdate = res);
     });
+  return favoritesAndLastUpdate;
 };
 
-export { addToFavorites };
+export { getFavorites };

@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import weather from "../../test/weather.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getFavorites } from "../services/getFavorites";
+import { getFavorites } from "../services/back-end/getFavorites";
+import { updateWeather } from "../services/back-end/updateWeather";
+import { timerOfUpdate } from "../tools/timerOfUpdate";
 
 export const WeatherContext = React.createContext({});
 export const WeatherProvider = (props) => {
   const [favorites, setFavorites] = useState([]);
+  var updateble = false;
   const getData = async () => {
-    getFavorites().then((res) => {
-      setFavorites(res);
+    await getFavorites().then(async (res) => {
+      await setFavorites(res.favorites);
+      updateble = await timerOfUpdate(res.lastUpdateWeather);
     });
+    if (updateble) {
+      await updateWeather(favorites);
+    }
   };
   const [tokenStatus, setTokenStatus] = useState(false);
   const weatherApi = weather;
-  const dateNow = 18; /* new Date().getHours(); */
+  const dateNow = new Date().getHours();
   const temp = weatherApi.current.temp_c.toFixed(0);
   const description = weatherApi.current.condition.text;
   const conditionCode = weatherApi.current.condition.code;
