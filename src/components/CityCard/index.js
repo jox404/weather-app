@@ -15,7 +15,7 @@ import {
   WindDayIcon,
   WindNightIcon,
 } from "../Icons";
-import { handleIconWeather } from "../IconWeather";
+import { IconWeather } from "../IconWeather";
 import { removeFavorite } from "../../services/back-end/removeFavorite";
 
 export default function CityCard(props) {
@@ -46,7 +46,11 @@ export default function CityCard(props) {
             <Text style={styles.country}>{props.country}</Text>
           </View>
           <View style={styles.iconWeather}>
-            {handleIconWeather(props.codeCondition, 70, 70)}
+            <IconWeather
+              codeCondition={props.codeCondition}
+              width={70}
+              height={70}
+            />
           </View>
         </View>
         <View style={styles.infoBottomContainer}>

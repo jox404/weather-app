@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text, TouchableHighlight, View } from "react-native";
 import { HeartBrokenIcon, HeartIcon } from "../Icons";
 import { stylesBtnAddCity } from "./styles";
-import { addToFavorites } from "../../services/back-end/addToFavorites";
+import { addToFavorite } from "../../services/back-end/addToFavorite";
 import { removeFavorite } from "../../services/back-end/removeFavorite";
 import { WeatherContext } from "../../providers/auth";
 
@@ -11,6 +11,7 @@ export default BtnAddCity = (props) => {
   const { getData, favorites } = React.useContext(WeatherContext);
   const [alreadyFavorited, setAlreadyFavorited] = useState(undefined);
 
+  console.log(favorites);
   const handleAlreadyFavorited = async (array, cityName) => {
     const city = await array.find((element) => element.name == cityName);
     if (city) {
@@ -40,7 +41,7 @@ export default BtnAddCity = (props) => {
               setAlreadyFavorited(false);
             });
         } else {
-          addToFavorites(
+          addToFavorite(
             props.name,
             props.temp,
             props.country,

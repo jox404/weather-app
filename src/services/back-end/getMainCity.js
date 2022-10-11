@@ -1,10 +1,10 @@
 import { getData } from "../storageLocal";
 
-const getFavorites = async () => {
+const getMainCity = async () => {
+  let response;
   try {
     const token = await getData("token");
-    var favoritesAndLastUpdate = undefined;
-    await fetch(`http://192.168.0.103:8080/favorites/1`, {
+    await fetch(`http://192.168.0.103:8080/mainCity/1`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -21,12 +21,12 @@ const getFavorites = async () => {
       })
       .then((res) => {
         console.log(res);
-        return (favoritesAndLastUpdate = res);
+        return (response = res);
       });
-    return favoritesAndLastUpdate;
   } catch (error) {
     console.log(error);
   }
+  return response;
 };
 
-export { getFavorites };
+export { getMainCity };

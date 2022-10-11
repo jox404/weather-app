@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { handleIconWeather } from "../IconWeather";
+import { HandleIconWeather } from "../IconWeather";
 import ConditionBar from "../ConditionBar";
 import BtnAddCity from "../BtnAddCity";
 import { stylesCityPoster } from "./styles";
 import { WeatherContext } from "../../providers/auth";
+import { Button } from "react-native";
+import { setMainCity } from "../../services/back-end/setMainCity";
 
 export default function CityPoster(props) {
   const { dateNow } = React.useContext(WeatherContext);
@@ -22,7 +24,7 @@ export default function CityPoster(props) {
             <Text style={styles.region}>{props.region}</Text>
           </View>
           <View style={styles.sunAndMoon}>
-            {handleIconWeather(props.codeCondition, 217, 217, dateNow)}
+            {HandleIconWeather(props.codeCondition, 217, 217, dateNow)}
           </View>
           <View>
             <Text style={styles.temp}>{props.temp}°</Text>
@@ -34,6 +36,9 @@ export default function CityPoster(props) {
               min={false}
               max={false}
             />
+          </View>
+          <View style={styles.btnContainer}>
+            <Button title="Main City" onPress={() => setMainCity(props.city)} />
           </View>
           <View style={styles.btnContainer}>
             <BtnAddCity

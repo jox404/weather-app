@@ -5,11 +5,11 @@ import { MaterialCommunityIcons } from "react-native-vector-icons";
 
 export default function Forecast(props) {
   const styles = stylesWeatherByTime;
-  var time = props.data.split("").splice(11, 5);
+  var hour = props.hour.split("").splice(11, 5);
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.time}>{time}</Text>
+        <Text style={styles.time}>{hour}</Text>
       </View>
       <View style={styles.weatherIcon}>
         <MaterialCommunityIcons

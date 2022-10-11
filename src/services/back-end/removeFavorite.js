@@ -4,7 +4,7 @@ const removeFavorite = async (index) => {
   const token = await getData("token");
   try {
     console.log(index, "index");
-    await fetch(`http://192.168.0.103:8080/removeFavorite/${index}`, {
+    await fetch(`http://192.168.0.103:8080/removeFavorite/${index}/1`, {
       method: "delete",
       headers: {
         "Content-Type": "application/json",

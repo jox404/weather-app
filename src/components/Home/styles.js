@@ -2,9 +2,18 @@ import { StyleSheet } from "react-native";
 
 export const stylesHome = StyleSheet.create({
   container: {
-    marginTop: 100,
     width: "100%",
     height: "100%",
+  },
+  weatherIconContainer: {
+    position: "absolute",
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  iconWeather: {
+    marginRight: -80,
+    marginTop: -50,
   },
   cityName: {
     color: "#fff",
@@ -26,11 +35,6 @@ export const stylesHome = StyleSheet.create({
   },
   infoContainer: {
     marginLeft: 35,
-  },
-  weatherIconContainer: {
-    position: "absolute",
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "flex-end",
+    marginTop: 80,
   },
 });

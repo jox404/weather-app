@@ -24,7 +24,7 @@ import SendArrowNight from "../../assets/sendArrowNight.svg";
 import SnowDay from "../../assets/snowDay.svg";
 import SnowNight from "../../assets/snowNight.svg";
 const LogoIcon = (props) => {
-  return <Logo width={props.width} height={props.height} style={props.style} />;
+  return <Logo width={props.width} height={props.height} />;
 };
 
 const SunIcon = (props) => {
@@ -69,7 +69,7 @@ const SearchDayIcon = (props) => {
   return (
     <SearchIconDay
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
@@ -78,7 +78,7 @@ const SearchNightIcon = (props) => {
   return (
     <SearchIconNight
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
@@ -86,14 +86,14 @@ const SearchNightIcon = (props) => {
 
 const SunEllipseIcon = (props) => {
   return (
-    <SunEllipse width={props.width} height={props.height} style={props.style} />
+    <SunEllipse width={props.width} height={props.width} style={props.style} />
   );
 };
 const CloudyDayLargeIcon = (props) => {
   return (
     <CloudyDayLarge
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
@@ -102,44 +102,34 @@ const CloudyNightLagerIcon = (props) => {
   return (
     <CloudyNightLager
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
 };
 const RainyDayIcon = (props) => {
   return (
-    <RainyDay width={props.width} height={props.height} style={props.style} />
+    <RainyDay width={props.width} height={props.width} style={props.style} />
   );
 };
 const MoonEllipseIcon = (props) => {
   return (
-    <MoonEllipse
-      width={props.width}
-      height={props.height}
-      style={props.style}
-    />
+    <MoonEllipse width={props.width} height={props.width} style={props.style} />
   );
 };
 const RainyNightIcon = (props) => {
   return (
-    <RainyNight width={props.width} height={props.height} style={props.style} />
+    <RainyNight width={props.width} height={props.width} style={props.style} />
   );
 };
 
 const HeartIcon = (props) => {
-  return (
-    <Heart width={props.width} height={props.height} style={props.style} />
-  );
+  return <Heart width={props.width} height={props.width} style={props.style} />;
 };
 
 const HeartBrokenIcon = (props) => {
   return (
-    <HeartBroken
-      width={props.width}
-      height={props.height}
-      style={props.style}
-    />
+    <HeartBroken width={props.width} height={props.width} style={props.style} />
   );
 };
 
@@ -147,7 +137,7 @@ const SendArrowDayIcon = (props) => {
   return (
     <SendArrowDay
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
@@ -156,7 +146,7 @@ const SendArrowNightIcon = (props) => {
   return (
     <SendArrowNight
       width={props.width}
-      height={props.height}
+      height={props.width}
       style={props.style}
     />
   );
@@ -164,14 +154,12 @@ const SendArrowNightIcon = (props) => {
 
 const SnowDayIcon = (props) => {
   return (
-    <SnowDay width={props.width} height={props.height} style={props.style} />
+    <SnowDay width={props.width} height={props.width} style={props.style} />
   );
 };
 
 const SnowNightIcon = (props) => {
-  return (
-    <SnowNight width={props.width} height={props.height} style={props.style} />
-  );
+  return <SnowNight width={props.width} height={props.width} />;
 };
 export {
   LogoIcon,

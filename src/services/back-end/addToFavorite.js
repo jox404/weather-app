@@ -1,6 +1,6 @@
 import { setData, getData } from "../storageLocal";
 
-const addToFavorites = async (name, temp, country, codeCondition) => {
+const addToFavorite = async (name, temp, country, codeCondition) => {
   var dataFavoriteModel = {
     favorite: {
       name: name,
@@ -13,7 +13,7 @@ const addToFavorites = async (name, temp, country, codeCondition) => {
   const token = await getData("token");
   var alreadyFavorited = undefined;
   try {
-    await fetch(`http://192.168.0.103:8080/addFavorites`, {
+    await fetch(`http://192.168.0.103:8080/addFavorite/1`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,4 +42,4 @@ const addToFavorites = async (name, temp, country, codeCondition) => {
   return alreadyFavorited;
 };
 
-export { addToFavorites };
+export { addToFavorite };

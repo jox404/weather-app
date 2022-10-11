@@ -76,12 +76,9 @@ export default function Login() {
       .then(async (res) => {
         if (res.token) {
           await setData("token", res.token); /* ta errado esse token */
-          const favorites = JSON.stringify(res.favorites);
           getData();
-          /*  await setData("favorites", favorites); */
-          await setTokenStatus(true); /* nada a ver foda-se */
+          await setTokenStatus(true);
         } else {
-          console.log(res);
           handleAlert(res.error, "warning");
         }
       })
