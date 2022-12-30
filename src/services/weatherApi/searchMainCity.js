@@ -8,6 +8,7 @@ const searchMainCity = async (cityName) => {
   )
     .then((res) => res.json())
     .then((res) => {
+      console.log(res.forecast.forecastday[0].astro);
       data = {
         current: {
           name: res.location.name,
@@ -17,6 +18,14 @@ const searchMainCity = async (cityName) => {
           conditionCode: res.current.condition.code,
           wind: res.current.wind_kph,
           humidity: res.current.humidity,
+          maxTemp: res.forecast.forecastday[0].day.maxtemp_c,
+          minTemp: res.forecast.forecastday[0].day.mintemp_c,
+          astro: {
+            sunRise: res.forecast.forecastday[0].astro.sunrise,
+            sunSet: res.forecast.forecastday[0].astro.sunset,
+            moonRise: res.forecast.forecastday[0].astro.moonrise,
+            moonSet: res.forecast.forecastday[0].astro.moonset,
+          },
         },
         forecast: res.forecast.forecastday,
       };

@@ -2,11 +2,13 @@ import React from "react";
 import { View, Text, FlatList } from "react-native";
 import { stylesCalendarWeather } from "./styles";
 import Forecast from "../Forecast";
-import { TouchableWithoutFeedback } from "react-native-web";
+import { TouchableWithoutFeedback } from "react-native";
 import getWeekDay from "../../tools/getWeekDay";
+import { IconWeather } from "../IconWeather";
 
 export default function CalendarWeather(props) {
   const styles = stylesCalendarWeather;
+  console.log(props.forecastWeek);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Today</Text>
@@ -38,11 +40,15 @@ export default function CalendarWeather(props) {
                 <TouchableWithoutFeedback>
                   <View style={styles.dayInfoContainer}>
                     <View style={styles.dayContainer}>
-                      <Text style={styles.day}>{getWeekDay(item.date)}</Text>
+                      <Text style={styles.day}>{getWeekDay(item.day)}</Text>
                     </View>
                     <View style={styles.conditionContainer}>
                       <Text style={styles.conditionIcon}>
-                        {/* {handleInconCondition(item.condition.code)} */}
+                        <IconWeather
+                          width={35}
+                          height={35}
+                          codeCondition={1000}
+                        />
                       </Text>
                     </View>
                     <View style={styles.maxMinTemp}>

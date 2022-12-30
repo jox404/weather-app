@@ -4,7 +4,7 @@ import { Button, Text, View, TouchableHighlight } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { stylesCityCard } from "./styles";
 import react from "react";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import {
   CaudyDayIcon,
   CaudyNightIcon,

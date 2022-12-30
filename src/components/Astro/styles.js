@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const stylesSunrise = StyleSheet.create({
+export const stylesAstro = StyleSheet.create({
   container: {
     width: "100%",
     paddingHorizontal: 25,

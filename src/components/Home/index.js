@@ -1,20 +1,18 @@
 import react from "react";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import { LinearGradient } from "expo-linear-gradient";
 import { Text, View } from "react-native";
 import { stylesHome } from "./styles";
-
 import CalendarWeather from "../CalendarWeather";
-import Sunrise from "../Sunrise";
-import SunAndMoon from "../SunAndMoon";
 import ConditionBar from "../ConditionBar";
 import { IconWeather } from "../IconWeather";
+import Astro from "../Astro";
 
 export default function Home() {
   const styles = stylesHome;
   const { dateNow, mainCity } = react.useContext(WeatherContext);
 
-  console.log(mainCity.forecastWeek);
+  console.log(mainCity);
   return (
     <LinearGradient
       colors={dateNow <= 17 ? ["#00A4FF", "#14FFC7"] : ["#000", "#4d4d4d"]}
@@ -33,12 +31,12 @@ export default function Home() {
         <ConditionBar
           humidity={mainCity.humidity}
           windSpeed={mainCity.wind}
-          min={mainCity.min}
-          max={mainCity.max}
+          min={mainCity.minTemp}
+          max={mainCity.maxTemp}
         />
-        <Sunrise />
+        <Astro astro={mainCity.astro} />
         <CalendarWeather
-          forecastDay={mainCity.forecastday}
+          forecastDay={mainCity.forecastDay}
           forecastWeek={mainCity.forecastWeek}
         />
       </View>

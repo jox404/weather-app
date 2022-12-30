@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Text, TextInput, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Input from "../Input";
@@ -8,11 +8,13 @@ import ButtonCustom from "../ButtonCustom";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { LogoIcon } from "../Icons";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
+import { AuthContext } from "../../providers/AuthContext";
 import { setData } from "../../services/storageLocal";
 
 export default function Login() {
-  const { setTokenStatus, dateNow, getData } = React.useContext(WeatherContext);
+  const { setTokenStatus, dateNow, getData } = useContext(WeatherContext);
+  const { setToken, setUser } = useContext(AuthContext);
   const storeData = async (key, value) => {
     try {
       await AsyncStorage.setItem(key, value);
@@ -58,7 +60,7 @@ export default function Login() {
       email: email,
       password: password,
     };
-    await fetch("http://192.168.0.103:8080/login", {
+    await fetch("http://192.168.0.102:8080/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,9 +77,9 @@ export default function Login() {
       })
       .then(async (res) => {
         if (res.token) {
-          await setData("token", res.token); /* ta errado esse token */
-          getData();
-          await setTokenStatus(true);
+          await setToken(res.token);
+          await setUser(res.user);
+          AsyncStorage.setItem("token", res.token);
         } else {
           handleAlert(res.error, "warning");
         }
@@ -101,7 +103,7 @@ export default function Login() {
         password: password,
       };
 
-      await fetch("http://192.168.0.103:8080/createUser", {
+      await fetch("http://192.168.0.102:8080/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

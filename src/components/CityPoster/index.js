@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { HandleIconWeather } from "../IconWeather";
+import { IconWeather } from "../IconWeather";
 import ConditionBar from "../ConditionBar";
 import BtnAddCity from "../BtnAddCity";
 import { stylesCityPoster } from "./styles";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import { Button } from "react-native";
 import { setMainCity } from "../../services/back-end/setMainCity";
 
@@ -24,7 +24,11 @@ export default function CityPoster(props) {
             <Text style={styles.region}>{props.region}</Text>
           </View>
           <View style={styles.sunAndMoon}>
-            {HandleIconWeather(props.codeCondition, 217, 217, dateNow)}
+            <IconWeather
+              codeCondition={props.codeCondition}
+              width={217}
+              height={217}
+            />
           </View>
           <View>
             <Text style={styles.temp}>{props.temp}°</Text>

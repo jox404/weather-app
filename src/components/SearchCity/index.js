@@ -4,7 +4,7 @@ import SearchField from "../SearchField";
 import { LinearGradient } from "expo-linear-gradient";
 import { stylesSearchCity } from "./styles";
 import { handleSearchCity } from "../../services/weatherApi/handleSearchCity";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import CityPoster from "../CityPoster";
 
 export default function SearchCity() {

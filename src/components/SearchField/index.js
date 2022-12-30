@@ -1,14 +1,14 @@
 import react, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { stylesSearchField } from "./styles";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import {
   SearchDayIcon,
   SearchNightIcon,
   SendArrowDayIcon,
   SendArrowNightIcon,
 } from "../Icons";
-import { TouchableHighlight } from "react-native-web";
+import { TouchableHighlight } from "react-native";
 
 export default function SearchField(props) {
   const styles = stylesSearchField;

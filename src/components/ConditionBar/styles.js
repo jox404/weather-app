@@ -9,6 +9,7 @@ export const stylesConditionBar = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
+    alignItems: "center",
   },
   windInfoContainer: {
     flexDirection: "row",
@@ -21,9 +22,8 @@ export const stylesConditionBar = StyleSheet.create({
   maxAndMinContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 60,
-    marginTop: -8,
+    /* width: 60, */
   },
-  max: { color: "#EAF6F6", fontSize: 25 },
-  min: { color: "#909090", fontSize: 25 },
+  max: { color: "#EAF6F6", fontSize: 18 },
+  min: { color: "#D8D9CF", fontSize: 18 },
 });

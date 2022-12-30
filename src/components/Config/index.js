@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import { configStyle } from "./style";
 import ButtonCustom from "../ButtonCustom";
 import AsyncStorage from "@react-native-async-storage/async-storage";

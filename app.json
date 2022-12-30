@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "jox-weather",
-    "slug": "jox-weather",
+    "slug": "weather-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.jox404.weatherapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "99cee627-bc56-46b4-8596-ef099198cce5"
+      }
+    },
+    "owner": "jox404"
   }
 }

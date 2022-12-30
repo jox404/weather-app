@@ -4,7 +4,7 @@ import { HeartBrokenIcon, HeartIcon } from "../Icons";
 import { stylesBtnAddCity } from "./styles";
 import { addToFavorite } from "../../services/back-end/addToFavorite";
 import { removeFavorite } from "../../services/back-end/removeFavorite";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 
 export default BtnAddCity = (props) => {
   const styles = stylesBtnAddCity;

@@ -2,7 +2,7 @@ import react, { useState } from "react";
 import { Text, View, FlatList, Button } from "react-native";
 import CityCard from "../CityCard";
 import { stylesFavorites } from "./styles";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 
 export default function Favorites({ route, navigation }) {
   const styles = stylesFavorites;

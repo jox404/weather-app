@@ -16,6 +16,7 @@ export const stylesCalendarWeather = StyleSheet.create({
     marginBottom: 10,
   },
   dayInfoContainer: {
+    alignItems: "center",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",

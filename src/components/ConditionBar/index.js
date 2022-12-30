@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import {
   DropDayIcon,
   DropNightIcon,
@@ -30,7 +30,7 @@ export default function ConditionBar(props) {
           ) : (
             <DropNightIcon width={20} height={20} />
           )}
-          <Text style={styles.windInfo}>Umidade {props.humidity}</Text>
+          <Text style={styles.windInfo}>Humidity {props.humidity}</Text>
         </View>
         <View
           style={[

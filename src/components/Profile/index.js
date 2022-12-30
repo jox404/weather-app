@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import { LinearGradient } from "expo-linear-gradient";
 import { profileStyle } from "./style";
 import { FontAwesome } from "react-native-vector-icons";

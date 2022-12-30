@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { WeatherContext } from "../../providers/auth";
+import { WeatherContext } from "../../providers/WeatherContext";
 import {
   CaudyDayIcon,
   CaudyNightIcon,
